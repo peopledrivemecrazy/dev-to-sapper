@@ -1,5 +1,5 @@
 DEV_USERNAME = username
-DEV_API_KEY = supersecretkey
-PER_PAGE = 10
-COMMENTS = true
-SITE = https://yoursite/
+DEV_API_KEY = supersecretkey #obtained via https://dev.to/settings/account
+PER_PAGE = 10 #if you like pagination
+COMMENTS = true #if you want comments in each post
+SITE = https://yoursite/ #SEO/Social Share
