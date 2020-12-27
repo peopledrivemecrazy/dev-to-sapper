@@ -27,13 +27,11 @@ let data = async function getPosts(sluginput) {
 	});
 
 	let data = res.data;
-	let { id, title, readable_publish_date, body_html, cover_image, tags, slug } = data
 
 
-	let articles = { id, title, readable_publish_date, body_html, cover_image, tags, slug }
 	let commentdata;
 	if (COMMENTS) {
-		const comments = await send("GET", `https://dev.to/api/comments?a_id=${id}`, {
+		const comments = await send("GET", `https://dev.to/api/comments?a_id=${data.id}`, {
 			headers: {
 				'api-key': API
 			}
@@ -43,9 +41,8 @@ let data = async function getPosts(sluginput) {
 	}
 
 	else { return { commentdata: null } }
-	// console.log({commentdata})
 	return {
-		articles, commentdata
+		articles:data, commentdata
 	}
 }
 export default data;

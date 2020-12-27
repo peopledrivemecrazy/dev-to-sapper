@@ -39,6 +39,9 @@
         ul li img {
             width: 45px;
         }
+        .comment {
+            overflow-x: scroll;
+        }
     }
     ul :global(ul) {
         margin-left: 1em;

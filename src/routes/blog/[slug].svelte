@@ -3,7 +3,7 @@
 		const res = await this.fetch(`blog/${params.slug}.json`);
 		const data = await res.json();
 		if (res.status === 200) {
-			return { post: data.articles, comments: data.comments };
+			return { data };
 		} else {
 			this.error(res.status, data.message);
 		}
@@ -12,9 +12,7 @@
 
 <script>
 	import Comments from "../../components/Comments.svelte";
-
-	export let post;
-	export let comments;
+	export let data;
 </script>
 
 <style>
@@ -43,24 +41,42 @@
 </style>
 
 <svelte:head>
-	<title>{post.title}</title>
+	<title>{data.article.title}</title>
+
+	<meta property="og:description" content={data.article.description} />
+	<meta property="og:title" content={data.article.title} />
+	<meta property="og:url" content="{data.site}{data.article.slug}" />
+	<meta property="og:type" content="website" />
+	{#if data.article.cover_image != null}
+		<meta property="og:image" content={data.article.cover_image} />
+		<meta name="twitter:image" content={data.article.cover_image} />
+	{:else}
+		<meta property="og:image" content={data.article.social_image} />
+		<meta name="twitter:image" content={data.article.social_image} />
+	{/if}
+
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:url" content="{data.site}{data.article.slug}" />
+	<meta name="twitter:title" content={data.article.title} />
+	<meta name="twitter:description" content={data.article.description} />
 </svelte:head>
 
 <p><a href="blog">Go back to blogs</a></p>
-{#if post.cover_image}<img src={post.cover_image} alt={post.title} />{/if}
-
-<h1>{post.title}</h1>
+{#if data.article.cover_image}
+	<img src={data.article.cover_image} alt={data.article.title} />
+{/if}
+<h1>{data.article.title}</h1>
 
 <div class="taglist">
-	{#each post.tags as tag}<span class="tags">{tag}</span>{/each}
+	{#each data.article.tags as tag}<span class="tags">{tag}</span>{/each}
 </div>
 
-<p>{post.readable_publish_date}</p>
+<p>{data.article.readable_publish_date}</p>
 <div class="content">
-	{@html post.body_html}
+	{@html data.article.body_html}
 </div>
 <h2>Comments</h2>
 
 <div class="comments">
-	<Comments {comments} slug={post.slug} />
+	<Comments comments={data.comments} slug={data.article.slug} />
 </div>

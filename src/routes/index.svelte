@@ -49,6 +49,21 @@
 
 <svelte:head>
 	<title>{data.user.name}'s Blog</title>
+
+	<meta
+		property="og:description"
+		content="{data.user.summary}" />
+	<meta property="og:title" content="{data.user.name} blog" />
+	<meta property="og:url" content="{data.site}" />
+	<meta property="og:type" content="website" />
+	<meta property="og:image" content="{data.user.profile_image}" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:url" content="{data.site}" />
+	<meta name="twitter:title" content="{data.user.name} blog" />
+	<meta
+		name="twitter:description"
+		content="{data.user.summary}" />
+	<meta name="twitter:image" content="{data.user.profile_image}" />
 </svelte:head>
 
 <div class="card">

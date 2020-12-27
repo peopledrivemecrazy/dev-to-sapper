@@ -1,6 +1,7 @@
 require("dotenv").config();
 
 const API = process.env.DEV_API_KEY
+const SITE = process.env.SITE
 
 import { send } from 'httpie';
 
@@ -36,7 +37,8 @@ export async function get(req, res) {
 	})
 	let data = {
 		user: user.data,
-		posts
+		posts,
+		site:SITE
 	}
 	res.end(JSON.stringify(data));
 }

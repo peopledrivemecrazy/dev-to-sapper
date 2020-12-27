@@ -2,7 +2,6 @@ import postData from './_posts.js';
 
 require("dotenv").config();
 const PER_PAGE = process.env.PER_PAGE
-
 export async function get(req, res) {
 
 	res.writeHead(200, {

@@ -1,0 +1,5 @@
+DEV_USERNAME = username
+DEV_API_KEY = supersecretkey
+PER_PAGE = 10
+COMMENTS = true
+SITE = https://yoursite/
