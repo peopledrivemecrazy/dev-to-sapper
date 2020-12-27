@@ -45,7 +45,7 @@
 
 	<meta property="og:description" content={data.article.description} />
 	<meta property="og:title" content={data.article.title} />
-	<meta property="og:url" content="{data.site}{data.article.slug}" />
+	<meta property="og:url" content="{data.site}blog/{data.article.slug}" />
 	<meta property="og:type" content="website" />
 	{#if data.article.cover_image != null}
 		<meta property="og:image" content={data.article.cover_image} />
@@ -56,7 +56,7 @@
 	{/if}
 
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:url" content="{data.site}{data.article.slug}" />
+	<meta name="twitter:url" content="{data.site}blog/{data.article.slug}" />
 	<meta name="twitter:title" content={data.article.title} />
 	<meta name="twitter:description" content={data.article.description} />
 </svelte:head>
