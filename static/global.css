@@ -37,7 +37,8 @@ pre {
   padding: 2em;
 }
 figure,
-p img,p iframe {
+p img,
+p iframe {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -365,4 +366,19 @@ div.inner-comment div.body div.highlight pre.highlight code {
 
 .highlight .il {
   color: #dda0dd;
+}
+.ltag-github-readme-tag {
+  border: 1px solid;
+  padding: 2em;
+}
+.readme-overview h2 {
+  display: flex;
+  align-items: center;
+}
+.readme-overview h2 img {
+  width: 50px;
+  margin-right: 1em;
+}
+.ltag-github-body {
+  display: none;
 }
