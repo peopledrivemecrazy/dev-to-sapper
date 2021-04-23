@@ -4,6 +4,8 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-size: 14px;
   line-height: 1.5;
+  color: #fff;
+  background-color: #29292e;
 }
 
 h1,
@@ -23,11 +25,15 @@ h1 {
 
 a {
   color: inherit;
+  color: #ff3e00;
 }
 
 @media (min-width: 400px) {
   body {
     font-size: 16px;
+  }
+  .readme-overview h2 {
+    flex-direction: column;
   }
 }
 img {
@@ -373,7 +379,7 @@ div.inner-comment div.body div.highlight pre.highlight code {
 }
 .readme-overview h2 {
   display: flex;
-  align-items: center;
+  font-size: 1em;
 }
 .readme-overview h2 img {
   width: 50px;
